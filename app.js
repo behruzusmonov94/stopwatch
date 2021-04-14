@@ -1,14 +1,6 @@
-
-
-
-
-
-
 const sec = document.getElementById('sec')
 const mils = document.getElementById('mils')
 const min = document.getElementById('min')
-
-
 
 const start = document.getElementById('start')
 const stops = document.getElementById('stop')
@@ -23,29 +15,28 @@ const render = (val) => {
     return html;
 }
 
-
-
+let a = 0
+let b = 0
+let c = 0
 start.addEventListener('click', () => {
-    let a = 0
-    let b = 0
-    let c = 0
-    var x = setInterval(()=>{
+
+    var x = setInterval(() => {
         a++
-        if(a == 100){
+        if (a == 100) {
             a = 0
         }
         mils.innerHTML = a
-    
+
     }, 10)
-    
+
     var y = setInterval(() => {
         b++
         sec.innerHTML = b
     }, 1000)
-    var z = setInterval(()=>{
+    var z = setInterval(() => {
 
         min.innerHTML = c
-    },1000*60)
+    }, 1000 * 60)
     stops.addEventListener('click', () => {
         clearInterval(x)
         clearInterval(y)
@@ -56,9 +47,6 @@ start.addEventListener('click', () => {
     start.style.display = 'none'
     stops.style.display = 'inline'
 
-
-    
-    
 })
 
 lap.addEventListener('click', () => {
@@ -74,14 +62,14 @@ const html = document.querySelector('html')
 
 darkMode.addEventListener('click', (e) => {
     html.classList.toggle('dark-mode')
-    if(e.target.classList.contains('fa-moon')){
+    if (e.target.classList.contains('fa-moon')) {
         e.target.classList.remove('fa-moon')
         e.target.classList.add('fa-sun')
-    }else{
+    } else {
         e.target.classList.remove('fa-sun')
         e.target.classList.add('fa-moon')
     }
-    
+
 })
 
 //reset
@@ -91,6 +79,9 @@ reset.addEventListener('click', () => {
     mils.textContent = '0'
     sec.textContent = '0'
     // min.innerHTML = '0'
+    a = 0
+    b = 0
+    c = 0
     let item = document.querySelectorAll('#progress li')
     item.forEach(item => {
         item.remove()
