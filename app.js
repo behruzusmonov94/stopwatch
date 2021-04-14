@@ -15,7 +15,7 @@ let c = 0
 const start = document.getElementById('start')
 const stops = document.getElementById('stop')
 const progress = document.getElementById('progress')
-const prog = document.getElementById('prog')
+const lap = document.getElementById('lap')
 
 
 const render = (val) => {
@@ -28,24 +28,14 @@ const render = (val) => {
 
 
 start.addEventListener('click', () => {
-    var x = setInterval((hours, minutes, seconds, milSeconds)=>{
-        // const now = new Date();
-        // hours = now.getFullYear()
-        // minutes = now.getMinutes()
-        // seconds = now.getSeconds()
-    
-        // milSeconds = now.getMilliseconds()
-        // time.innerHTML = `${hours}:${minutes}:${seconds}`
-    
+    var x = setInterval(()=>{
         a++
-        if(a == 1000/4){
+        if(a == 100){
             a = 0
         }
         mils.innerHTML = a
     
-        
-    
-    }, 1)
+    }, 10)
     
     var y = setInterval(() => {
         b++
@@ -68,7 +58,7 @@ start.addEventListener('click', () => {
     
 })
 
-prog.addEventListener('click', () => {
+lap.addEventListener('click', () => {
     let val = sec.parentElement.textContent;
     progress.innerHTML += render(val)
 })
