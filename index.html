@@ -17,11 +17,16 @@
     <div class="container">
 
         <h1 class="display-1"><span class="min">0</span>:<span id="sec">0</span>:<span id="mils">0</span></h1>
-
-        <button id="start" class="btn btn-primary">Start</button>
-        <button id="stop" style="display: none;" class="btn btn-danger">Stop</button>
-        <button id="lap" class="btn btn-info">Lap</button>
-        <button class="btn btn-warning" id="reset">Reset</button>
+        <div class="d-flex justify-content-between">
+        <div>
+            <button id="start" class="btn btn-primary">Start</button>
+            <button id="stop" style="display: none;" class="btn btn-danger">Stop</button>
+            <button id="lap" class="btn btn-info">Lap</button>
+        </div>
+        <div>
+            <button class="btn btn-warning" id="reset">Reset</button>
+        </div>
+    </div>
         <hr>
         <ol id="progress"></ol>
     </div>
