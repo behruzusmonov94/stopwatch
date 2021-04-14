@@ -7,9 +7,7 @@
 const sec = document.getElementById('sec')
 const mils = document.getElementById('mils')
 const min = document.getElementById('min')
-let a = 0
-let b = 0
-let c = 0
+
 
 
 const start = document.getElementById('start')
@@ -28,6 +26,9 @@ const render = (val) => {
 
 
 start.addEventListener('click', () => {
+    let a = 0
+    let b = 0
+    let c = 0
     var x = setInterval(()=>{
         a++
         if(a == 100){
@@ -55,6 +56,8 @@ start.addEventListener('click', () => {
     start.style.display = 'none'
     stops.style.display = 'inline'
 
+
+    
     
 })
 
@@ -79,4 +82,17 @@ darkMode.addEventListener('click', (e) => {
         e.target.classList.add('fa-moon')
     }
     
+})
+
+//reset
+const reset = document.getElementById('reset')
+
+reset.addEventListener('click', () => {
+    mils.textContent = '0'
+    sec.textContent = '0'
+    // min.innerHTML = '0'
+    let item = document.querySelectorAll('#progress li')
+    item.forEach(item => {
+        item.remove()
+    })
 })
