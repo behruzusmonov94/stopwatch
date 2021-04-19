@@ -27,11 +27,14 @@ start.addEventListener('click', () => {
             b++
         }
         if (b == 60) {
+            b = 0
             c++
         }
         mils.textContent = a
         sec.textContent = b
         min.textContent = c
+      
+        
     }, 100)
 
     stops.addEventListener('click', () => {
