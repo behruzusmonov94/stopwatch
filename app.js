@@ -22,24 +22,20 @@ start.addEventListener('click', () => {
 
     var x = setInterval(() => {
         a++
-        if (a == 100) {
+        if (a == 10) {
             a = 0
+            b++
         }
-        mils.innerHTML = a
+        if (b == 60) {
+            c++
+        }
+        mils.textContent = a
+        sec.textContent = b
+        min.textContent = c
+    }, 100)
 
-    }, 10)
-
-    var y = setInterval(() => {
-        b++
-        sec.innerHTML = b
-    }, 1000)
-    var z = setInterval(() => {
-
-        min.innerHTML = c
-    }, 1000 * 60)
     stops.addEventListener('click', () => {
         clearInterval(x)
-        clearInterval(y)
         start.style.display = 'inline'
         stops.style.display = 'none'
 
@@ -47,12 +43,47 @@ start.addEventListener('click', () => {
     start.style.display = 'none'
     stops.style.display = 'inline'
 
+
+
+    //reset
+    const reset = document.getElementById('reset')
+
+    reset.addEventListener('click', () => {
+        mils.textContent = '0'
+        sec.textContent = '0'
+        // min.innerHTML = '0'
+        a = 0
+        b = 0
+        c = 0
+        let item = document.querySelectorAll('#progress li')
+        item.forEach(item => {
+            item.remove()
+        })
+        clearInterval(x)
+        start.style.display = 'inline'
+        stops.style.display = 'none'
+    })
+
 })
 
 lap.addEventListener('click', () => {
     let val = sec.parentElement.textContent;
     progress.innerHTML += render(val)
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //dark mode
@@ -70,20 +101,4 @@ darkMode.addEventListener('click', (e) => {
         e.target.classList.add('fa-moon')
     }
 
-})
-
-//reset
-const reset = document.getElementById('reset')
-
-reset.addEventListener('click', () => {
-    mils.textContent = '0'
-    sec.textContent = '0'
-    // min.innerHTML = '0'
-    a = 0
-    b = 0
-    c = 0
-    let item = document.querySelectorAll('#progress li')
-    item.forEach(item => {
-        item.remove()
-    })
 })
